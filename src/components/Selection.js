@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useState } from "react";
 
-export default function Selection(props) {
-  return (
-    <div>
-       <div style={props.applyColor} className="fix-box">{props.key}</div>
-    </div>
-  )
+
+const Selection = (props) => {
+
+    let { id, selectionStyle } = props;
+  
+    const [backgroundStyle, setBackgroundStyle] = useState("");
+
+    function handleClick() {
+        setBackgroundStyle(selectionStyle.background);
+    }
+
+    return (
+        <div className="fix-box" id={id} onClick={handleClick} style={{ background: backgroundStyle }}  >
+        <p className="subheading">Selection</p>
+      </div>
+    )
+
 }
+
+export default Selection;
